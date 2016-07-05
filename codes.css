@@ -32,6 +32,7 @@ p {
 }
 
 #inputbox {
+  position: relative;
   display: block;
   margin: auto;
   float: left;
@@ -121,4 +122,36 @@ p {
 
 h1 {
   text-align: center;
+}
+
+.circle {
+    position:absolute;
+    width:7%;padding-bottom:40%;
+    margin-left:47.5%;
+    pointer-events:none;
+}
+.circle div {
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    -webkit-transform : rotate(45deg);
+    -ms-transform : rotate(45deg);
+    transform : rotate(45deg);
+    pointer-events:none;
+}
+.circle:before, .circle div:before  {
+    content:'';
+    position:absolute;
+    top:0; left:0;
+    width:100%; padding-bottom:100%;
+    background:#CFCFCF;
+    pointer-events:auto;
+}
+
+.gircle div:before, .gircle:before {
+    background:#000000;
+}
+
+.pircle div:before, .pircle:before {
+    background:#CFCFCF;
 }
