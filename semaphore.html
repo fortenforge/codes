@@ -13,36 +13,76 @@
           FastClick.attach(document.body);
         });
 
-        var index = 0;
-        var flag_map = ['', '?', 'A', 'C', '?', '?', 'E', 'D', ',', 'I', 'B', 'F', '?', 'J', 'H', 'G',
-                          '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '.', 'W', '?', '?',
-                         '\'', '?', 'K', 'M', '?', '?', 'O', 'N', '?', 'S', 'L', 'P', '!', 'T', 'R', 'Q',
-                          '-', '?', 'U', 'X', '?', '?', 'Z', 'Y', '?', '?', 'V', '?', '?', '?', '?', '?'];
+        var first = 0;
+        var second = 0;
+        var index = 7;
+        var flag_map = [
+                        ['',  '',  '',  '',  '',  '',  '',  '',  ''],
+                        ['',  '', '#', 'J', 'V', 'D', 'K', 'P', 'T'],
+                        ['', '#',  '', 'W', 'X', 'E', 'L', 'Q', 'U'],
+                        ['', 'J', 'W',  '', 'Z', 'F', 'M', 'R', 'Y'],
+                        ['', 'V', 'X', 'Z',  '', 'G', 'N', 'S', '?'],
+                        ['', 'D', 'E', 'F', 'G', ' ', 'A', 'B', 'C'],
+                        ['', 'K', 'L', 'M', 'N', 'A',  '', 'H', 'I'],
+                        ['', 'P', 'Q', 'R', 'S', 'B', 'H',  '', 'O'],
+                        ['', 'T', 'U', 'Y', '?', 'C', 'I', 'O',  ''],
+                       ]
+
+        // positioning
+        $('#c1').css('left', '130px'); $('#c1').css('top',   '0px');
+        $('#c2').css('left', '187px'); $('#c2').css('top',  '23px');
+        $('#c3').css('left', '210px'); $('#c3').css('top',  '80px');
+        $('#c4').css('left', '187px'); $('#c4').css('top', '137px');
+        $('#c5').css('left', '130px'); $('#c5').css('top', '160px');
+        $('#c6').css('left',  '73px'); $('#c6').css('top', '137px');
+        $('#c7').css('left',  '50px'); $('#c7').css('top',  '80px');
+        $('#c8').css('left',  '73px'); $('#c8').css('top',  '23px');
+
+        // rotation
+        $('#c2').css('transform', 'rotate(45deg)');
+        $('#c4').css('transform', 'rotate(45deg)');
+        $('#c6').css('transform', 'rotate(45deg)');
+        $('#c8').css('transform', 'rotate(45deg)');
 
         function translate() {
-          // $("#outputbox").html('<p class="key">' + braille_map[index] + '</p>');
+          $("#outputbox").html('<p class="key">' + flag_map[first][second] + '</p>');
         }
 
         function toggle_cell(hid) {
-          id = parseInt(hid.slice(-1));
-          $('#c' + (id-1)).toggleClass('gircle');
-          $('#c' + (id)).toggleClass('pircle');
-          // if ($(hid).css("background-color") == "rgb(0, 0, 0)") {
-          //   $(hid).css("background", "#CFCFCF");
-          //   index &= ((1 << 6) - 1) - (1 << id);
-          // }
-          // else {
-          //   $(hid).css("background", "#000000");
-          //   index |= (1 << id);
-          // }
-          // translate();
+          id = hid.slice(-1);
+          if ($(hid).css("background-color") == "rgb(0, 0, 0)") {
+            $(hid).css("background", "#CFCFCF");
+            if (second == 0) {
+              first = 0;
+            }
+            else {
+              first = second;
+              second = 0;
+            }
+          }
+          else {
+            $(hid).css("background", "#000000");
+            if (first == 0) {
+              first = id;
+            }
+            else if (second == 0) {
+              second = id;
+            }
+            else {
+              hfirst = '#c' + first;
+              $(hfirst).css("background", "#CFCFCF");
+              first = second;
+              second = id;
+            }
+          }
+          translate();
         }
 
-        $('.circle').click( function toggle(event) {
+        $('.flag').click( function toggle(event) {
           toggle_cell('#' + event.target.id);
         });
         $("#outputbox").click( function record() {
-          $("#ciphertext").html($("#ciphertext").html() + braille_map[index]);
+          $("#ciphertext").html($("#ciphertext").html() + flag_map[first][second]);
         });
       });
     </script>
@@ -55,9 +95,14 @@
       <p>Input: </p>
       <div id="wrapper">
         <div id="inputbox">
-          <div class="circle" id="c1">
-            <div id="c2"><div id="c3"><div id="c4"><div id="c5"><div id="c6"><div id="c7"><div id="c8"></div></div></div></div></div></div></div>
-          </div>
+          <div id="c1" class="flag"></div>
+          <div id="c2" class="flag"></div>
+          <div id="c3" class="flag"></div>
+          <div id="c4" class="flag"></div>
+          <div id="c5" class="flag"></div>
+          <div id="c6" class="flag"></div>
+          <div id="c7" class="flag"></div>
+          <div id="c8" class="flag"></div>
         </div>
         <div id="wrapper2">
           <div id="outputbox">
