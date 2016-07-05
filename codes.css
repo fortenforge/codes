@@ -1,0 +1,85 @@
+h1, p, ul, h2, h3, select, #output{
+	font-family: 'Open Sans', "Helvetica Neue", serif;
+}
+
+p {
+    font-size: 16px;
+}
+
+#word {
+  background-color:#FFFF00;
+}
+
+#plaintext {
+  width: 400px;
+  font-family: 'Courier New';
+  font-size: 15px;
+}
+
+#ciphertext {
+  font-family: 'Courier New';
+  font-size: 15px;
+}
+
+#key {
+  position: relative;
+  bottom: 50px;
+  font-family: 'Courier New';
+  font-size: 50px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+}
+
+#toolbox {
+  width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid;
+  padding: 10px 10px;
+  margin-top: -10px;
+}
+
+#inputbox {
+  display: block;
+  margin: auto;
+  float: left;
+  width: 300px;
+  height: 200px;
+}
+
+#outputbox {
+  float: left;
+  position: relative;
+  bottom: -50px;
+  width: 80px;
+  height: 80px;
+  background-color: #DFDFDF;
+}
+
+#wrapper {
+  margin: auto;
+  width: 500px;
+  height: 200px;
+}
+
+.row {
+  width: 120px;
+  margin: auto;
+  display: block;
+}
+
+.cell {
+  float: right;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: #CFCFCF;
+  border: 2px;
+  margin: 5px;
+}
+
+h1 {
+  text-align: center;
+}
