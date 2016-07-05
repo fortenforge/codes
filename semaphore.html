@@ -51,17 +51,16 @@
         function toggle_cell(hid) {
           id = hid.slice(-1);
           if ($(hid).css("background-color") == "rgb(0, 0, 0)") {
-            $(hid).css("background", "#CFCFCF");
+            $(hid).css("background-color", "#CFCFCF");
             if (second == 0) {
               first = 0;
             }
             else {
-              first = second;
               second = 0;
             }
           }
           else {
-            $(hid).css("background", "#000000");
+            $(hid).css("background-color", "#000000");
             if (first == 0) {
               first = id;
             }
@@ -70,7 +69,7 @@
             }
             else {
               hfirst = '#c' + first;
-              $(hfirst).css("background", "#CFCFCF");
+              $(hfirst).css("background-color", "#CFCFCF");
               first = second;
               second = id;
             }
