@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+    <link rel="shortcut icon" href="http://web.mit.edu/rsridhar/www/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="codes.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open Sans">
+    <script src="../jquery.js"></script>
+    <script type='application/javascript' src='fastclick.js'></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(function() {
+          FastClick.attach(document.body);
+        });
+
+        var current = '';
+        var morse_map = {
+                "": "",
+                ".-": "A",
+                "-...": "B",
+                "-.-.": "C",
+                "-..": "D",
+                ".": "E",
+                "..-.": "F",
+                "--.": "G",
+                "....": "H",
+                "..": "I",
+                ".---": "J",
+                "-.-": "K",
+                ".-..": "L",
+                "--": "M",
+                "-.": "N",
+                "---": "O",
+                ".--.": "P",
+                "--.-": "Q",
+                ".-.": "R",
+                "...": "S",
+                "-": "T",
+                "..-": "U",
+                "...-": "V",
+                ".--": "W",
+                "-..-": "X",
+                "-.--": "Y",
+                "--..": "Z",
+                "-----": "0",
+                ".----": "1",
+                "..---": "2",
+                "...--": "3",
+                "....-": "4",
+                ".....": "5",
+                "-....": "6",
+                "--...": "7",
+                "---..": "8",
+                "----.": "9"
+            };
+
+        function translate(id) {
+          if (id == 'space_blip') {
+            current = '';
+          }
+          else {
+            current += id;
+          }
+          $("#ditdash").html('<p id="dits">' + current.replace(/\./g, '&bull;') + '</p>');
+          output = '?';
+          if (current in morse_map) {
+            output = morse_map[current];
+          }
+          $("#outputbox").html('<p id="fk" class="key">' + output + '</p>');
+        }
+
+        $(".blip").click( function blip(event) {
+          translate(event.target.id);
+        });
+        $("#outputbox").click( function record() {
+          $("#ciphertext").html($("#ciphertext").html() + $("#fk").html());
+        });
+      });
+    </script>
+
+    <title>Morse</title>
+  </head>
+  <body>
+    <h1>Morse</h1>
+    <div id="toolbox">
+      <p>Input: </p>
+      <div id="wrapper">
+        <div id="inputbox">
+          <div class="row">
+            <div class="blip"><p id="." class="key" style="bottom:60px">&bull;</p>
+            </div>
+            <div class="blip"><p id="-" class="key" style="bottom:60px">-</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="blip" id='space'><p class="key" id="space_blip" >clear</p>
+            </div>
+          </div>
+        </div>
+        <div id="wrapper2">
+          <div id="outputbox">
+          </div>
+          <div id="ditdash">
+          </div>
+        </div>
+      </div>
+      <span id="output">Output:</span>
+      <div id="ciphertext">
+      </div>
+    </div>
+
+  </body>
+</html>

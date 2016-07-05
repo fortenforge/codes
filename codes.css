@@ -6,22 +6,12 @@ p {
     font-size: 16px;
 }
 
-#word {
-  background-color:#FFFF00;
-}
-
-#plaintext {
-  width: 400px;
-  font-family: 'Courier New';
-  font-size: 15px;
-}
-
 #ciphertext {
   font-family: 'Courier New';
   font-size: 15px;
 }
 
-#key {
+.key {
   position: relative;
   bottom: 50px;
   font-family: 'Courier New';
@@ -50,17 +40,34 @@ p {
 }
 
 #outputbox {
-  float: left;
-  position: relative;
-  bottom: -50px;
+  display:inline-block;
+  vertical-align:top;
   width: 80px;
   height: 80px;
   background-color: #DFDFDF;
+  margin: 2px;
+}
+
+#ditdash {
+  display:inline-block;
+  vertical-align:top;
+  width: 140px;
+  height: 40px;
+  background-color: #DFDFDF;
+  margin: 2px;
 }
 
 #wrapper {
   margin: auto;
   width: 500px;
+  height: 200px;
+}
+
+#wrapper2 {
+  text-align:center;
+  float: right;
+  margin: auto;
+  width: 200px;
   height: 200px;
 }
 
@@ -78,6 +85,38 @@ p {
   background: #CFCFCF;
   border: 2px;
   margin: 5px;
+}
+
+.blip {
+  position: relative;
+  bottom: -45px;
+  float: right;
+  width: 50px;
+  height: 50px;
+  background: #DFDFDF;
+  border: 2px;
+  margin: 5px;
+}
+
+#space {
+  width: 110px;
+  height: 40px;
+}
+
+#space_blip {
+  font-size: 20px;
+  font-family: 'Open Sans', "Helvetica Neue", serif;
+  bottom: 40px;
+}
+
+#dits {
+  position: relative;
+  bottom: 25px;
+  font-family: 'Courier New';
+  font-size: 30px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
 }
 
 h1 {

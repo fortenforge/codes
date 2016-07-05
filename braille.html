@@ -6,8 +6,13 @@
     <link rel="stylesheet" type="text/css" href="codes.css">
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open Sans">
     <script src="../jquery.js"></script>
+    <script type='application/javascript' src='fastclick.js'></script>
     <script type="text/javascript">
       $(document).ready(function() {
+        $(function() {
+          FastClick.attach(document.body);
+        });
+
         var index = 0;
         var braille_map = ['', '?', 'A', 'C', '?', '?', 'E', 'D', ',', 'I', 'B', 'F', '?', 'J', 'H', 'G',
                           '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '.', 'W', '?', '?',
@@ -15,7 +20,7 @@
                           '-', '?', 'U', 'X', '?', '?', 'Z', 'Y', '?', '?', 'V', '?', '?', '?', '?', '?'];
 
         function translate() {
-          $("#outputbox").html('<p id="key">' + braille_map[index] + '</p>');
+          $("#outputbox").html('<p class="key">' + braille_map[index] + '</p>');
         }
 
         function toggle_cell(hid) {
@@ -67,7 +72,9 @@
             </div>
           </div>
         </div>
-        <div id="outputbox">
+        <div id="wrapper2">
+          <div id="outputbox">
+          </div>
         </div>
       </div>
       <span id="output">Output:</span>
