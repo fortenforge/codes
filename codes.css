@@ -6,6 +6,10 @@ p {
     font-size: 16px;
 }
 
+h1 {
+  text-align: center;
+}
+
 #ciphertext {
   font-family: 'Courier New';
   font-size: 15px;
@@ -31,6 +35,8 @@ p {
   margin-top: -10px;
 }
 
+/* Common */
+
 #inputbox {
   position: relative;
   display: block;
@@ -45,15 +51,6 @@ p {
   vertical-align:top;
   width: 80px;
   height: 80px;
-  background-color: #DFDFDF;
-  margin: 2px;
-}
-
-#ditdash {
-  display:inline-block;
-  vertical-align:top;
-  width: 140px;
-  height: 40px;
   background-color: #DFDFDF;
   margin: 2px;
 }
@@ -78,6 +75,8 @@ p {
   display: block;
 }
 
+/* Braille */
+
 .cell {
   float: right;
   border-radius: 50%;
@@ -86,6 +85,17 @@ p {
   background: #CFCFCF;
   border: 2px;
   margin: 5px;
+}
+
+/* Morse */
+
+#ditdash {
+  display:inline-block;
+  vertical-align:top;
+  width: 140px;
+  height: 40px;
+  background-color: #DFDFDF;
+  margin: 2px;
 }
 
 .blip {
@@ -120,9 +130,7 @@ p {
   line-height: 40px;
 }
 
-h1 {
-  text-align: center;
-}
+/* Semaphore */
 
 .flag {
   position: absolute;
