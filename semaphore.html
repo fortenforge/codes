@@ -55,7 +55,13 @@
               first = 0;
             }
             else {
-              second = 0;
+              if (id == first) {
+                first = second;
+                second = 0;
+              }
+              else {
+                second = 0;
+              }
             }
           }
           else {
@@ -78,6 +84,8 @@
 
         $('.flag').click( function toggle(event) {
           toggle_cell('#' + event.target.id);
+          console.log("first = " + first);
+          console.log("second = " + second);
         });
         $("#outputbox").click( function record() {
           $("#ciphertext").html($("#ciphertext").html() + flag_map[first][second]);
