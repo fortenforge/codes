@@ -35,6 +35,28 @@ h1 {
   margin-top: -10px;
 }
 
+#codesheet {
+  display: block;
+	max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid;
+  padding: 10px 10px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+table {
+	display: inline;
+	margin: 20px;
+	align-items: center;
+}
+
+td {
+	font-family: 'Courier New';
+}
+
 /* Common */
 
 #inputbox {
@@ -85,6 +107,10 @@ h1 {
   background: #CFCFCF;
   border: 2px;
   margin: 5px;
+}
+
+.brailleFont {
+	font-size: 30px;
 }
 
 /* Morse */
